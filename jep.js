@@ -127,9 +127,8 @@ function loadGame(){
 
   	currentGame.values.forEach(function(d){
   	//& is screwing up string omparision
-  	//TODO research global && stripping
-  		d[" Answer"] = d[" Answer"].replace("&","and");
-  		d[" Question"] = d[" Question"].replace("&","and");
+  		d[" Answer"] = d[" Answer"].replace(/\&/g,"and");
+  		d[" Question"] = d[" Question"].replace(/\&/g,"and");
   	});
   	//0 === Jep, 1 === double jes, 3 === final jep
   	buildBoard(currentGame);
